@@ -1,0 +1,67 @@
+<mat-card style="margin: 0 auto;" class="example-card"  class="w-96 text-center">
+    <mat-card-content>
+        <h1>Data User</h1>
+      <p>result : {{response.info.results}}</p>
+      <p>seed : {{response.info.seed}}</p>
+      <p>version: {{response.info.version}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+    </mat-card-actions>
+  </mat-card> 
+
+
+<mat-table [dataSource]="response.results"  class="mt-4 mat-elevation-z8">
+    <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef> Id </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.uuid.substr(0,6)}} </mat-cell>
+      </ng-container>
+    
+    <!-- Position Column -->
+    <ng-container matColumnDef="image">
+      <mat-header-cell *matHeaderCellDef> Image </mat-header-cell>
+      <mat-cell *matCellDef="let element"> <img class="rounded-2xl my-5"  [src]="element.imageUrl" alt=""> </mat-cell>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="name" >
+      <mat-header-cell *matHeaderCellDef class="mx-5"> Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.fisrtName}} {{element.lastName}} </mat-cell>
+    </ng-container>
+  
+    <!-- image -->
+    <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
+    </ng-container>
+    <!-- image -->
+    <ng-container matColumnDef="gender">
+        <mat-header-cell *matHeaderCellDef> Gender </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.gender}} </mat-cell>
+    </ng-container>
+    
+    <!-- image -->
+    <ng-container matColumnDef="address">
+        <mat-header-cell *matHeaderCellDef> Address </mat-header-cell>
+        <mat-cell  class="mr-5" *matCellDef="let element"> {{element.address}} </mat-cell>
+    </ng-container>
+
+    <!-- phone number -->
+    <ng-container matColumnDef="phone">
+        <mat-header-cell *matHeaderCellDef> Phone No </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.phone}} </mat-cell>
+    </ng-container>
+
+      <!-- Weight Column -->
+    <ng-container matColumnDef="action">
+      <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+      <mat-cell *matCellDef="let element"> 
+        <button mat-raised-button color="primary" [routerLink]="['/user', element.uuid]">View</button>   
+      </mat-cell>
+    </ng-container>
+  
+    
+
+    <mat-header-row class="mx-5" *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row class="mx-5" *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+  

@@ -1,0 +1,129 @@
+<div class="container mx-auto px-4">
+    <h1 class="text-center">User Bio</h1>
+    <div class=" flex justify-evenly">
+        <div class="w-1/5  mr-5">
+            <mat-card class=" example-card text-center">
+                <img class="p-5 w-full rounded-full"  [src]="user.imageUrl" alt="Photo of a Shiba Inu">
+                <mat-card-content>
+                    <h1>{{user.fisrtName}} {{user.lastName}}</h1>
+                    <p>{{user.username}}</p>
+                    <p>{{user.uuid}}</p>
+                </mat-card-content>
+                <mat-card-actions>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+        <mat-card class="w-3/5 example-card  text-center">
+            <mat-card-content>
+                <div class="flex ">
+                    <div class="my-auto w-1/6">
+                        <p>First Name :</p>
+                    </div>
+                    <div class="w-5/6">
+                        <mat-form-field class="w-full" appearance="outline">
+                          <input matInput [value]="user.fisrtName" [disabled]="mode==true">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="flex ">
+                    <div class="my-auto w-1/6">
+                        <p>Last Name :</p>
+                    </div>
+                    <div class="w-5/6">
+                        <mat-form-field class="w-full" appearance="outline">
+                          <input matInput [value]="user.lastName" [disabled]="mode==true">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="flex ">
+                    <div class="my-auto w-1/6">
+                        <p>Birth Date :</p>
+                    </div>
+                    <div class="w-5/6">
+                        <mat-form-field class="w-full" appearance="outline">
+                          <input matInput [value]="user.dateOfBirth" [disabled]="mode==true">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="flex ">
+                    <div class="my-auto w-1/6">
+                        <p>Email :</p>
+                    </div>
+                    <div class="w-5/6">
+                        <mat-form-field class="w-full" appearance="outline">
+                          <input matInput  [value]="user.email" [disabled]="mode==true">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="flex ">
+                    <div class="my-auto w-1/6">
+                        <p>Phone :</p>
+                    </div>
+                    <div class="w-5/6">
+                        <mat-form-field class="w-full" appearance="outline">
+                          <input matInput [value]="user.phone" [disabled]="mode==true">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="flex ">
+                    <div class="my-auto w-1/6">
+                        <p>Gender :</p>
+                    </div>
+                    <div class="w-5/6">
+                        <mat-form-field class="w-full" appearance="outline">
+                          <input matInput [value]="user.gender" [disabled]="mode==true">
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="flex ">
+                    <div class="my-auto w-1/6">
+                        <p>Address :</p>
+                    </div>
+                    <div class="w-5/6">
+                        <mat-form-field class="w-full" appearance="outline">
+                          <input matInput [value]="user.address" [disabled]="mode==true">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="flex ">
+                    <div class="my-auto w-1/6">
+                        
+                    </div>
+                    <div class="w-1/6 w-20 ">
+                        <!-- <mat-form-field class="w-full" appearance="outline"> -->
+                          <!-- <input matInput [value]="user.address"> -->
+                          <button  (click)="changeMode()" mat-raised-button color="primary">{{buttonText}}</button>
+                        <!-- </mat-form-field> -->
+                    </div>
+                </div>
+            </mat-card-content>
+            <mat-card-actions>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+    <div class=" flex justify-evenly mt-4">
+        <div class="w-1/5">
+
+        </div>
+        <mat-card class="mb-5 ml-5 w-3/5 p-5 example-card text-center">
+            <mat-card-content>
+                <p>User Location</p>
+                <div class="w-full h-96 border-2 border-indigo-600">
+                    <google-map
+                    height="380px"
+                    width="865px"
+                    #googleMap="googleMap"
+                    [zoom]="zoom"
+                    (mapInitialized)="addPlace(googleMap)"
+                    >
+                    <map-marker
+                    [position]="place">
+                    </map-marker>
+                    </google-map>                 
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div> 
+</div>
+  

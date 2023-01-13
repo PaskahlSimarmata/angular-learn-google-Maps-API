@@ -1,0 +1,21 @@
+    <!-- <google-map
+    height="400px"
+    width="750px"
+    [center]="center"
+    [zoom]="zoom">
+    <map-polyline [path]="verticles"></map-polyline>
+    </google-map> -->
+<!-- 
+    <div>Latitude : {{display?.lat}}</div>
+    <div>Longitude : {{display?.lng}}</div> -->
+    <google-map
+    height="500px"
+    width="750px"
+    [center]="verticles"
+    [zoom]="zoom">
+    <map-marker
+    [position]="verticles"
+    >
+
+    </map-marker>
+</google-map>
